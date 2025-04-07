@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bored Mode</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f4f4f4;
+    }
+    #boredContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    #boredContainer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #boredContainer li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      color: #007BFF;
+      font-size: 18px;
+    }
+    #boredContainer li:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="boredContainer"></div>
+  <script>
+    const boredContainer = document.getElementById('boredContainer');
+
+    const boredLinks = [
+      { title: "Cookie Clicker", url: "https://goatedcoder360.github.io/cookieclicker/" },
+      { title: "Idle Breakout", url: "https://buckyz.github.io/IdleBreakout/" },
+      { title: "Slope", url: "https://games-site.github.io/projects/slope/index.html" },
+      { title: "Bitlife", url: "https://3kh0s.github.io/games/bitlife/index.html" },
+      { title: "Minecraft", url: "https://rusello25.github.io/Eaglercraft-1.12.2/" },
+      { title: "Papas Wingeria", url: "https://ubg89.github.io/PapasWingeria/" },
+      { title: "Papas Pancakeria", url: "https://3kh0s.github.io/games/papaspancakeria/index.html" },
+      { title: "Papas Sushiria", url: "https://3kh0s.github.io/games/papassushiria/index.html" },
+      { title: "Basketball Stars", url: "https://ubg100.github.io/games/bbstars/index.html" },
+      { title: "Space Company", url: "https://sparticle999.github.io/SpaceCompany/" },
+      { title: "Geometry Dash", url: "https://geometrydashonline.github.io/" },
+      { title: "Geometry Dash Subzero", url: "https://games-site.github.io/projects/geodash-subzero/index.html" },
+      { title: "oVo", url: "https://3kh0s.github.io/games/ovo/index.html" },
+      { title: "Run 3", url: "https://realpeanut.github.io/games/run3/index.html" },
+      { title: "2048", url: "https://3kh0s.github.io/games/2048/index.html" },
+      { title: "Drift Boss", url: "https://3kh0s.github.io/games/driftboss/index.html" },
+      { title: "Tomb of the Mask", url: "https://goatedcoder360.github.io/tombofthemask/" },
+      { title: "Chrome Dino", url: "https://games-site.github.io/projects/chrome-dino/index.html" },
+      { title: "Basket Random", url: "https://3kh0s.github.io/games/basketrandom/index.html" },
+      { title: "Stickman Hook", url: "https://3kh0s.github.io/games/stickmanhook/index.html" },
+      { title: "Gun Mayhem 2", url: "https://3kh0s.github.io/games/gunmayhem2/index.html" },
+      { title: "YoHoHo.io", url: "https://3kh0s.github.io/games/yohoho/index.html" },
+      { title: "Chess", url: "https://naemazam.github.io/Online-Chess/AIchess.html" },
+      { title: "Blackjack (No Real Gambling)", url: "https://goatedcoder360.github.io/blackjack/" },
+      { title: "Poker (No Real Gambling)", url: "https://goatedcoder360.github.io/poker/" }
+    ];
+
+    function openFullScreenLink(url) {
+      document.body.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.style.position = 'fixed';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = 'none';
+      document.body.appendChild(iframe);
+    }
+
+    function renderBoredMode() {
+      boredContainer.innerHTML = '<ul></ul>';
+      const ul = boredContainer.querySelector('ul');
+      boredLinks.forEach(link => {
+        const li = document.createElement('li');
+        li.textContent = link.title;
+        li.addEventListener('click', () => {
+          openFullScreenLink(link.url);
+        });
+        ul.appendChild(li);
+      });
+    }
+
+    renderBoredMode();
+  </script>
+</body>
+</html>
