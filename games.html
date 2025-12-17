@@ -38,8 +38,10 @@
 </head>
 <body>
   <div id="boredContainer"></div>
+
   <script>
     const boredContainer = document.getElementById('boredContainer');
+    let gameOpen = false;
 
     const boredLinks = [
       { title: "Cookie Clicker", url: "https://goatedcoder360.github.io/cookieclicker/" },
@@ -77,6 +79,7 @@
     ];
 
     function openFullScreenLink(url) {
+      gameOpen = true;
       document.body.innerHTML = '';
       const iframe = document.createElement('iframe');
       iframe.src = url;
@@ -101,6 +104,15 @@
         ul.appendChild(li);
       });
     }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '\\' && gameOpen) {
+        const goBack = confirm('Do you want to go back to the homescreen?');
+        if (goBack) {
+          location.reload();
+        }
+      }
+    });
 
     renderBoredMode();
   </script>
